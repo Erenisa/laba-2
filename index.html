@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    <script>
+        var numbers = [];
+        for(var i = 0; i < 6; i++){ // рандомные числа
+            numbers[i] = Math.floor((Math.random() * 100) + 0);
+        }
+
+        alert(numbers);
+        var min = 1000;
+
+        for(var i = 0; i < numbers.length; i++){ // нахождение минимального числа
+            if(min > numbers[i]) min = numbers[i];
+        }
+
+        alert('Минимальное число - ' + min);
+
+        var x1, x2;
+
+        for(var i = 0; i < numbers.length; i++){ // первое положительное число
+            if(numbers[i] > 0) {x1 = i; break;}
+        }
+
+        for(var i = 0; i < numbers.length; i++){ //последний положительный элемент
+            if(numbers[numbers.length-i] > 0) {x2 = numbers.length-i; break;}
+        }
+
+        var sum = 0;
+
+        for(var i = x1; i < x2; i++){ // подсчёт суммы
+            sum += numbers[i];
+        }
+
+        alert('Сумма между первым и последним положительным числом - ' + sum);
+
+        var temp;
+
+        for(var i = 0; i < numbers.length; i++){ // Нахожу 0 и меняю местами с первыми
+            if(numbers[i] == 0) continue;
+            for(var z = 0; z < numbers.length; z++){
+                if(numbers[z] == 0) {
+                    temp = numbers[i];
+                    numbers[i] = 0;
+                    numbers[z] = temp;
+                }
+                else continue;
+            }
+        }
+
+        alert('Вывод нулей в начале (если есть): '  + numbers);
+    </script>
+</body>
+</html>
